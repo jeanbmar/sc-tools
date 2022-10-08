@@ -1,6 +1,6 @@
 {
   "name": "@ultrapowa/sc-tools",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A tool to unpack, repack, edit and play 2d animations from Supercell games",
   "keywords": ["supercell", "sc", "clash of clans", "clash royale", "brawl stars", "boom beach", "hay day", "reverse"],
   "type": "module",

@@ -32,7 +32,7 @@ const files = glob.sync(sourcePattern)
 
 for (const filePath of files) {
   const projectName = basename(filePath, '.sc');
-  await SCProject.import(filePath, join(projectDir, projectName), {
+  await unpack(filePath, join(projectDir, projectName), {
     shapeOuterColor: { // remove this options for total transparency
       red: 0, green: 255, blue: 0, alpha: 255,
     },
@@ -45,7 +45,7 @@ for (const filePath of files) {
 ```js
 const { pack } = require('@ultrapowa/sc-tools');
 
-pack('path/to/local/workspace/clash-royale/spell_goblin_barrel');
+await pack('path/to/local/workspace/clash-royale/spell_goblin_barrel');
 ```
 
 ### Extract SC File Shapes as PNG Images
@@ -53,7 +53,7 @@ pack('path/to/local/workspace/clash-royale/spell_goblin_barrel');
 ```js
 const { basename, resolve, join } = require('path');
 const glob = require('glob');
-const { buildPngShapes } = require('@ultrapowa/sc-tools');
+const { unpack, buildPngShapes } = require('@ultrapowa/sc-tools');
 
 const sourcePattern = resolve('path/to/apk/**/*.sc');
 const projectDir = resolve('path/to/local/workspace/brawl-stars-38.111');
@@ -64,19 +64,19 @@ const files = glob.sync(sourcePattern)
 for (const filePath of files) {
   const projectName = basename(filePath, '.sc');
   const projectDirectory = join(projectDir, projectName);
-  await SCProject.import(filePath, projectDirectory, { flattenShapes: true });
-  SCProject.buildPngShapes(projectDirectory); // still sync
+  await unpack(filePath, projectDirectory, { flattenShapes: true });
+  await buildPngShapes(projectDirectory); // still sync
 }
 ```
 
-### Export a Movie Clip to Render in a Browser
+### Export Movie Clips to Render in a Browser
 
 ```js
 const path = require('path');
-const { MovieClipExporter } = require('..');
+const { exportMovieClips } = require('@ultrapowa/sc-tools');
 
 const filePath = 'path/to/apk/assets/e30a1e4a93c76bea755877299ebebf535e1b3d73/sc/level.sc'; 
 const outputDir = 'path/to/workspace/rendering';
 
-await MovieClipExporter.exportAll(filePath, outputDir);
+await exportMovieClips(filePath, outputDir);
 ```
