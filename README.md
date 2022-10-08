@@ -19,10 +19,9 @@ Todo:
 ### Unpack SC File(s) to Project(s)
 
 ```js
-const { basename, resolve, join } = require('path');
-const glob = require('glob');
-const { unpack } = require('@ultrapowa/sc-tools');
-
+import { basename, resolve, join } from 'path';
+import glob from 'glob';
+import { unpack } from '@ultrapowa/sc-tools';
 
 const sourcePattern = resolve('path/to/apk/assets/e30a1e4a93c76bea755877299ebebf535e1b3d73/sc/*.sc');
 const projectDir = resolve('path/to/local/workspace/brawl-stars-33.127');
@@ -43,7 +42,7 @@ for (const filePath of files) {
 ### Pack Project to SC File
 
 ```js
-const { pack } = require('@ultrapowa/sc-tools');
+import { pack } from '@ultrapowa/sc-tools';
 
 await pack('path/to/local/workspace/clash-royale/spell_goblin_barrel');
 ```
@@ -51,9 +50,9 @@ await pack('path/to/local/workspace/clash-royale/spell_goblin_barrel');
 ### Extract SC File Shapes as PNG Images
 
 ```js
-const { basename, resolve, join } = require('path');
-const glob = require('glob');
-const { unpack, buildPngShapes } = require('@ultrapowa/sc-tools');
+import { basename, resolve, join } from 'path';
+import glob from 'glob';
+import { unpack, buildPngShapes } from '@ultrapowa/sc-tools';
 
 const sourcePattern = resolve('path/to/apk/**/*.sc');
 const projectDir = resolve('path/to/local/workspace/brawl-stars-38.111');
@@ -72,8 +71,8 @@ for (const filePath of files) {
 ### Export Movie Clips to Render in a Browser
 
 ```js
-const path = require('path');
-const { exportMovieClips } = require('@ultrapowa/sc-tools');
+import path from 'path';
+import { exportMovieClips } from '@ultrapowa/sc-tools';
 
 const filePath = 'path/to/apk/assets/e30a1e4a93c76bea755877299ebebf535e1b3d73/sc/level.sc'; 
 const outputDir = 'path/to/workspace/rendering';
