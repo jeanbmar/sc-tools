@@ -10,7 +10,7 @@ module.exports = {
   },
   plugins: ['prettier'],
   rules: {
-    'import/extensions': ['error', 'ignorePackages', { js: 'never' }],
+    'import/extensions': ['error', 'ignorePackages', {}],
     'import/no-extraneous-dependencies': [
       'error',
       {
